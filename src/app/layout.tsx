@@ -1,12 +1,16 @@
 import "./globals.css";
-import type { Metadata } from "next";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AE Battery Stock",
-  description: "Battery stock management app",
+  title: "AE Battery Point",
+  description: "Daily Stock Count",
   manifest: "/manifest.json",
   themeColor: "#0f172a",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+  },
 };
 
 export default function RootLayout({
@@ -16,24 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="theme-color" content="#0f172a" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="default"
-        />
-      </head>
       <body>
         {children}
 
-        {/* Service Worker Registration */}
+        {/* Register Service Worker */}
         <Script id="sw-register" strategy="afterInteractive">
           {`
-            if ('serviceWorker' in navigator) {
-              window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js');
-              });
+            if ('serviceWorker' in navigator') {
+              navigator.serviceWorker.register('/sw.js');
             }
           `}
         </Script>
