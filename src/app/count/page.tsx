@@ -454,7 +454,8 @@ export default function CountPage() {
               setShowList(true);
             }}
             placeholder="Search battery name"
-            className="w-full p-3 border rounded text-lg relative z-20 bg-white"
+            className="w-full p-3 border rounded text-lg relative z-20 bg-white text-slate-900 placeholder-slate-400"
+
           />
 
           {showList && results.length > 0 && (
@@ -467,7 +468,8 @@ export default function CountPage() {
                     setShowList(false);
                     qtyRef.current?.focus();
                   }}
-                  className="p-3 cursor-pointer hover:bg-blue-50"
+                  className="p-3 cursor-pointer hover:bg-blue-50 text-slate-900"
+
                 >
                   {r}
                 </div>
@@ -484,7 +486,8 @@ export default function CountPage() {
           onChange={e => setQty(e.target.value)}
           onKeyDown={e => e.key === "Enter" && addCount()}
           placeholder="Quantity (+ / -)"
-          className="w-full p-3 border rounded text-lg"
+          className="w-full p-3 border rounded text-lg text-slate-900 placeholder-slate-400"
+
         />
 
         <button
