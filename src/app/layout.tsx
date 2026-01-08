@@ -7,10 +7,6 @@ export const metadata: Metadata = {
   description: "Daily Stock Count",
   manifest: "/manifest.json",
   themeColor: "#0f172a",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-  },
 };
 
 export default function RootLayout({
@@ -23,10 +19,9 @@ export default function RootLayout({
       <body>
         {children}
 
-        {/* Register Service Worker */}
         <Script id="sw-register" strategy="afterInteractive">
           {`
-            if ('serviceWorker' in navigator') {
+            if ('serviceWorker' in navigator) {
               navigator.serviceWorker.register('/sw.js');
             }
           `}
